@@ -14,10 +14,9 @@ def parse():
     return parser.parse_args()
 
 def validacion():
-    print("Desea Continuar?\nSi (S), No (N)")
     do
     {
-        opcion = readline()
+        opcion = input('Desea Continuar?\nSi (S), No (N): ')
     }while(opcion == "S" or opcion == "N" or opcion == "s" or opcion == "n")
     if opcion == "S" or opcion == "s":
         True
