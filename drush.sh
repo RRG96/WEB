@@ -13,11 +13,4 @@ sudo git checkout 8.0.3
 sudo ln -s /usr/local/src/drush/drush /usr/bin/drush
 composer install
 drush --version
-#composer global require drush/drush
-#sudo cat $HOME/.bashrc | grep "PATH" | sed "s/:\\$/:\$HOME\\/.config/composer/vendor/bin/drush:/"
-#source $HOME/.bashrc
-#drush dl drupal-8.0.3
-#mv /var/www/site-blabla/* /var/www/site-blabla.bk
-#cp drupal-8.0.3/* /var/www/site-blabla
-#rm -rf drupal-8.0.3
 echo "Drush instalado correctamente"
