@@ -53,8 +53,8 @@ if __name__ == '__main__':
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
     if (validacion()):
         if instalar_componente("dependencias"):
-        #if instalar_componente("drush"):
-            if configurar_apache():
-                #if configurar_php():
-                 #   if migracion():
-                print("Migración completa")
+            if instalar_componente("drush"):
+                if configurar_apache():
+                    # if configurar_php():
+                    #   if migracion():
+                    print("Migración completa")
