@@ -12,27 +12,10 @@ def parse():
     return parser.parse_args()
 
 def validacion():
-<<<<<<< HEAD
     print("La base de datos para drupal se creará con los siguientes argumentos:\nUsuario: {0}\nContraseña: {1}\nDatabase: {2}\nIP: {3}".format(args.user, args.password, args.database, args.ip))
     opcion = input('¿Iniciar migración?\n(Si) -> S\n(No) -> Cualquier tecla\nIngresa una opción: ')
     if (opcion.upper() == 'S'):
         return True
-=======
-    do
-    {
-        opcion = input('Desea Continuar?\nSi (S), No (N): ')
-    }while(opcion == "S" or opcion == "N" or opcion == "s" or opcion == "n")
-    if opcion == "S" or opcion == "s":
-        True
-    else:
-        False
-
-def instalar_dependencias(prs.su, prs.pd, prs.pu, prs.pp, prs.pn):
-    print("Se descargaran dependencias necesarias para la migración")
-    if validacion():
-        os.system("chmod 755 ../*")
-        os.system("sudo dependencias.sh" + prs.su + " " + prs.pd + " " + prs.pu + " " + prs.pp + " " + prs.pn)
->>>>>>> 02dbcfb297adef2a50f795bd8baff3be60a32f26
     else:
         print("Migración cancelada")
 
