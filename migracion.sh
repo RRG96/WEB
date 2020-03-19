@@ -22,7 +22,7 @@ echo -n "\$databases['migrate']['default'] = array (\n
 'port' => '$5',\n
 'namespace' => 'Drupal\\Core\\Database\\Driver\pgsql',\n
 'driver' => 'pgsql'\n
-);" >> settings.php
+);" >> Direccion de instalacion/settings.php
 drush migrate-upgrade --legacy-db-url=pgsql://$2@$4/$1 --legacy-$2=/Direccion de instalacion --configure-only
 drush migrate-status
 drush migrate-import --all --feedback="60 seconds"
