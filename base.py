@@ -32,12 +32,21 @@ def configurar_apache():
         print("Error en la configuración de apache")
         exit()
         
-def configurar_php(esp, esp1, esp2):
-    if("sudo chmod +x php.sh && sudo ./ php.sh " + esp + " " + esp1 + " " + esp2) == 0:
+def configurar_php():
+    if os.system("sudo chmod +x php.sh && sudo ./php.sh " + config['PHP']['dir'] + " " + config['PHP']['allow'] + " " + config['PHP']['session']) == 0:
         return True
     else:
         print("Error en la configuración de PHP")
         exit()
+
+def migracion():
+    if os.system("sudo chmod +x migracion.sh && sudo ./migracion.sh " + config['PostgreSQL']['database'] + " " + config['PostgrSQL']['user'] + " " + config['PostgreSQL']['password'] + " " + config['PostgreSQL']['host'] + " " + config['PostgreSQL']['port']) == 0:
+        return True
+    else:
+        print("La migración no se logró")
+        os.system('drush migrate-rollback --all --feedback="60 seconds"')
+        exit()
+        
 
 if __name__ == '__main__':
     os.system("clear")
@@ -47,5 +56,6 @@ if __name__ == '__main__':
             if instalar_componente("drush"):
                 if instalar_componente("drupal"):
                     if configurar_apache():
-                        if configurar_php(config['PHP']['dir'], config['PHP']['allow'], config['PHP']['session']):
-                            print("Migración completa")
+                        if configurar_php():
+                            if migracion():
+                                print("Migración completa")
