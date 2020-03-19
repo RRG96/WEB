@@ -10,7 +10,7 @@ cadena = (config['Apache']['sitio']).split('.')
 cert = (config['SSH']['certPath']).split('/')
 key = (config['SSH']['keyPath']).split('/')
 os.system("set -e")
-os.system("sudo chmod 777 /var/www/ && cd /var/www/ && drush dl drupal-8 && sudo mv drupal-8.8.4 " + cadena[0] + " && sudo chmod 755 /var/www/ && sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/" + cadena[0]  + ".conf"
+os.system("sudo chmod 777 /var/www/ && cd /var/www/ && drush dl drupal-8 && sudo mv drupal-8.8.4 " + cadena[0] + " && sudo chmod 755 /var/www/ && sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/" + cadena[0]  + ".conf")
 os.system("sudo sshpass -p " + config['SSH']['password'] + " scp " + config['SSH']['user'] + "@" + config['SSH']['ip'] + ":" + config['SSH']['certPath'] + " /etc/ssl/certs/" + cert[len(cert)-1])
 os.system("sudo sshpass -p " + config['SSH']['password'] + " ssh -t " + config['SSH']['user'] + "@" + config['SSH']['ip'] + " \"echo " + config['SSH']['password'] + " | sudo -S chmod 777 " + config['SSH']['keyPath'] + "\"")
 os.system("sudo sshpass -p " + config['SSH']['password'] + " scp " + config['SSH']['user'] + "@" + config['SSH']['ip'] + ":" + config['SSH']['keyPath'] + " /etc/ssl/private/" + key[len(key)-1])
