@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-: '
+
 set -e
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
@@ -14,4 +14,3 @@ sudo ln -s /usr/local/src/drush/drush /usr/bin/drush
 composer install
 drush --version
 echo "Drush instalado correctamente"
-'
