@@ -72,13 +72,7 @@ if __name__ == '__main__':
     if (validacion()):
         if instalar_componente("dependencias"):
             if instalar_componente("drush"):
-<<<<<<< HEAD
                 if configurar_apache():
-                    print("Migración completa")
-=======
-                if instalar_componente("drupal"):
-                    if configurar_apache():
-                        if configurar_php():
-                            if migracion():
-                                print("Migración completa")
->>>>>>> 08a44d07140282f6f6f4e9a66ad198ddebff37d2
+                    if configurar_php():
+                        if migracion():
+                            print("Migración completa")
