@@ -26,7 +26,7 @@ def validacion():
 def instalar_dependencias(prs.su, prs.pd, prs.pu, prs.pp, prs.pn):
     print("Se descargaran dependencias necesarias para la migración")
     if validacion():
-        os.system("chmod 777 ../*")
+        os.system("chmod 755 ../*")
         os.system("sudo dependencias.sh" + prs.su + " " + prs.pd + " " + prs.pu + " " + prs.pp + " " + prs.pn)
     else:
         print("No se descargaron dependencias\nPueden ser necesarias para los procesos siguientes")
