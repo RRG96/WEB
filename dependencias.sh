@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 set -e
 sudo apt-get install -y php7.3
 sudo apt-get install -y curl

@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
 set -e
-
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 sudo apt-get install php-dom php-zip unzip php-gd php-mbstring -y
@@ -21,5 +20,4 @@ drush --version
 #mv /var/www/site-blabla/* /var/www/site-blabla.bk
 #cp drupal-8.0.3/* /var/www/site-blabla
 #rm -rf drupal-8.0.3
-
 echo "Drush instalado correctamente"
