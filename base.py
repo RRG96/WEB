@@ -24,6 +24,14 @@ def instalar_componente(componente):
         print("Error en la instalación de " + componente)
         exit()
 
+def configurar_apache():
+    if os.system("cd /var/www/ && drush dl drupal-8 && sudo cp /etc/apache2/sites-available/default-ssl.conf " + config['Apache']['sitio'] + ".conf") == 0:
+        print("Drupal instalado y configurado correctamente")
+        return True
+    else:
+        print("Error en la configuración de apache")
+        exit()
+
 if __name__ == '__main__':
     os.system("clear")
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
@@ -31,5 +39,5 @@ if __name__ == '__main__':
         if instalar_componente("dependencias"):
             if instalar_componente("drush"):
                 if instalar_componente("drupal"):
-                    if instalar_componente("sitios"):
+                    if configurar_apache():
                         print("Migración completa")
