@@ -63,6 +63,6 @@ if __name__ == '__main__':
             if instalar_componente("drush"):
                 if configurar_apache():
                     if configurar_php():
-                        if instalar_componente("desdrush");
+                        if instalar_componente("desdrush")
                            if migracion():
                                 print("Migración completa")
