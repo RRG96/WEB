@@ -14,7 +14,7 @@ def validacion():
     opcion = input("\n¿Iniciar migración?\n(Si) -> S\n(No) -> Cualquier tecla\n\nIngresa una opción: ")
     if (opcion.upper() == 'S'):
         print("Probando conectividad...")
-        if(os.system("ping -c3 " + config['SSH']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['Apache']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['PostgreSQL']['ip'] + "| grep \"0 received\"") != 0):
+        if(os.system("ping -c3 8.8.8.8 | grep \"0 received\"") != 0  and os.system("ping -c3 " + config['SSH']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['Apache']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['PostgreSQL']['ip'] + "| grep \"0 received\"") != 0):
             print("Conexión establecida")
             return True
         else:
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     #if (validacion()):
         #if instalar_componente("dependencias"):
            #if instalar_componente("drush"):
-    if configurar_apache():
+                #if configurar_apache():
                     # if configurar_php():
                     #   if migracion():
-        print("Migración completa")
+                    #print("Migración completa")
