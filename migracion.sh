@@ -12,7 +12,7 @@ echo -n "\$databases['upgrade']['default'] = array (\n
 'port' => '$5',\n
 'namespace' => 'Drupal\\Core\\Database\\Driver\pgsql',\n
 'driver' => 'pgsql'\n
-);" >> /var/www/drupal-8.8.3/sites/default/settings.php
+);" >> /var/www/nuevosmagumbos/sites/default/settings.php
 echo -n "\$databases['migrate']['default'] = array (\n
 'database' => '$1',\n
 'username' => '$2',\n
@@ -22,8 +22,8 @@ echo -n "\$databases['migrate']['default'] = array (\n
 'port' => '$5',\n
 'namespace' => 'Drupal\\Core\\Database\\Driver\pgsql',\n
 'driver' => 'pgsql'\n
-);" >> /var/www/drupal-8.8.3/sites/default/settings.php
-drush migrate-upgrade --legacy-db-url=pgsql://$2@$4/$1 --legacy-$2=/var/www/drupal-8.8.3 --configure-only
+);" >> /var/www/nuevosmagumbos/sites/default/settings.php
+drush migrate-upgrade --legacy-db-url=pgsql://$6:$7@$8/$9 --legacy-root=/var/www/magumbos --configure-only
 drush migrate-status
 drush migrate-import --all --feedback="60 seconds"
 echo "NOTA: Es posible que se encuentren errores extra"
