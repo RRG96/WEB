@@ -9,4 +9,3 @@ if [[ $(cat /etc/php/7.3/cli/php.ini | grep ".*php_expose.*") ]]; then sed -i "s
 #if [[ $(cat /etc/php/7.3/cli/php.ini | grep ".*open_basedir.*") ]]; then sed -i "s/.*open_basedir.*/open_basedir = $2/" /etc/php/7.3/cli/php.ini; else echo "open_basedir = $2" >> /etc/php/7.3/cli/php.ini; fi
 #if [[ $(cat /etc/php/7.3/cli/php.ini | grep ".*session\.name.*") ]]; then sed -i "s/.*session\.name.*/session\.name = $3/" /etc/php/7.3/cli/php.ini; else echo "session.name = $3" >> /etc/php/7.3/cli/php.ini; fi
 #if [[ $(cat /etc/php/7.3/cli/php.ini | grep ".*$1.*") ]]; then sed -i "s/.*$1.*/$1/" /etc/php/7.3/cli/php.ini; else echo "$1" >> /etc/php/7.3/cli/php.ini; fi
-echo "PHP configurado satisfactoriamente"
