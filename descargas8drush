@@ -1,0 +1,48 @@
+drush dl ctools
+drush dl css_editor
+drush dl event_logging
+drush dl feeds
+drush dl file_management
+drush dl google_analytics
+drush dl workflow
+drush dl galleryformatter
+drush dl popip_message
+drush dl smtp
+drush dl string_translation
+drush dl sitemap
+drush dl token
+drush dl panels
+drush dl metag
+drush dl captcha
+drush dl breakpoints
+
+drush en ctools -y
+drush en css_editor -y
+drush en event_log -y
+drush en feeds -y
+drush en google_analytics -y
+drush en workflow -y
+drush en galleryformatter -y
+drush en simple_ldap -y
+drush en smtp -y
+drush en sitemap -y
+drush en token -y
+drush en panels -y
+drush en metatag -y
+drush en captcha -y
+drush en breakpoints -y
+
+drush en workflow_access -y
+drush en workflow_vbo -y
+drush en workflow -y          
+drush en workflow_cleanup -y
+drush en workflowfield -y
+drush en workflownode -y           
+drush en workflow_search_api -y  
+drush en workflow_notify -y
+drush en workflow_notify_og -y
+drush en workflow_revert -y        
+drush en workflow_rules -y             
+drush en workflow_actions -y
+drush en workflow_admin_ui -y
+drush en workflow_views -y
