@@ -39,14 +39,14 @@ def configurar_apache():
         exit()
 
 def configurar_php():
-    if os.system("echo " + config['sudo']['password'] + " | sudo chmod +x php.sh && sudo ./php.sh " + config['PHP']['dir'] + " " + config['PHP']['allow'] + " " + config['PHP']['session']) == 0:
+    if os.system("echo " + config['sudo']['password'] + " | sudo chmod -S +x php.sh && sudo ./php.sh " + config['PHP']['dir'] + " " + config['PHP']['allow'] + " " + config['PHP']['session']) == 0:
         return True
     else:
         print("Error en la configuración de PHP")
         exit()
 
 def migracion():
-    if os.system("echo " + config['sudo']['password'] + " | sudo chmod +x migracion.sh && sudo ./migracion.sh " + config['PostgreSQL']['database'] + " " + config['PostgreSQL']['user'] + " " + config['PostgreSQL']['password'] + " " + config['PostgreSQL']['host'] + " " + config['PostgreSQL']['port']) == 0:
+    if os.system("echo " + config['sudo']['password'] + " | sudo chmod -S +x migracion.sh && sudo ./migracion.sh " + config['PostgreSQL']['database'] + " " + config['PostgreSQL']['user'] + " " + config['PostgreSQL']['password'] + " " + config['PostgreSQL']['host'] + " " + config['PostgreSQL']['port']) == 0:
         return True
     else:
         print("La migración no se logró")
