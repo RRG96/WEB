@@ -37,7 +37,7 @@ def configurar_apache():
     else:
         print("Error en la configuración de apache")
         exit()
-        """
+
 def configurar_php():
     if os.system("sudo chmod +x php.sh && sudo ./php.sh " + config['PHP']['dir'] + " " + config['PHP']['allow'] + " " + config['PHP']['session']) == 0:
         return True
@@ -52,15 +52,15 @@ def migracion():
         print("La migración no se logró")
         os.system('drush migrate-rollback --all --feedback="60 seconds"')
         exit()
-        """
+
 
 if __name__ == '__main__':
     os.system("clear")
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
-    #if (validacion()):
-        #if instalar_componente("dependencias"):
-           #if instalar_componente("drush"):
-                #if configurar_apache():
-                    # if configurar_php():
-                    #   if migracion():
-                    #print("Migración completa")
+    if (validacion()):
+        if instalar_componente("dependencias"):
+           if instalar_componente("drush"):
+                if configurar_apache():
+                    if configurar_php():
+                       if migracion():
+                            print("Migración completa")
