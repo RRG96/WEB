@@ -2,6 +2,7 @@
 
 from configparser import ConfigParser
 import os
+import subprocess
 
 config = ConfigParser()
 config.read('MIGdrupal.conf')
@@ -12,7 +13,12 @@ def validacion():
         print(file.read())
     opcion = input("\n¿Iniciar migración?\n(Si) -> S\n(No) -> Cualquier tecla\n\nIngresa una opción: ")
     if (opcion.upper() == 'S'):
-        return True
+        print("Probando conectividad...")
+        if(os.system("ping -c3 " + config['SSH']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['Apache']['ip'] + "| grep \"0 received\"") != 0 and os.system("ping -c3 " + config['PostgreSQL']['ip'] + "| grep \"0 received\"") != 0):
+            print("Conexión establecida")
+            return True
+        else:
+            print("No hay conectividad")
     else:
         print("Migración cancelada")
 
@@ -53,7 +59,7 @@ if __name__ == '__main__':
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
     #if (validacion()):
         #if instalar_componente("dependencias"):
-           # if instalar_componente("drush"):
+           #if instalar_componente("drush"):
     if configurar_apache():
                     # if configurar_php():
                     #   if migracion():

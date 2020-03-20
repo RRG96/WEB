@@ -24,4 +24,6 @@ os.system("sudo sed -i '5 a ServerName " + config['Apache']['sitio'] + "' /etc/a
 os.system("sudo sed -i '5 a ServerAlias www." + config['Apache']['sitio'] + "' /etc/apache2/sites-available/" + cadena[0]  + ".conf")
 os.system("sudo sed -i '1 a 127.0.0.1 " + config['Apache']['sitio'] + "' /etc/hosts")
 os.system("sudo a2ensite " + cadena[0]  + ".conf")
+os.system("cd /var/www/" + cadena[0] + " && sudo chmod 777 /var/www/" + cadena[0]+ "/sites/default && drush si standard -y --db-url=pgsql://" + config['PostgreSQL']['user'] + ":" + config['PostgreSQL']['password'] + "@" + config['PostgreSQL']['ip'] + "/" + config['PostgreSQL']['database'])
+os.system("sudo chown -R www-data:www-data /var/www/" + cadena[0])
 os.system("sudo systemctl restart apache2")
