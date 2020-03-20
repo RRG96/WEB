@@ -53,14 +53,16 @@ def migracion():
         os.system('drush migrate-rollback --all --feedback="60 seconds"')
         exit()
 
-
 if __name__ == '__main__':
     os.system("clear")
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
     if (validacion()):
         if instalar_componente("dependencias"):
-           if instalar_componente("drush"):
+            if config['Postfix']['install'] == "true":
+                    instalar_componente("correo2")
+            if instalar_componente("drush"):
                 if configurar_apache():
                     if configurar_php():
-                       if migracion():
-                            print("Migración completa")
+                        if instalar_componente("desdrush");
+                           if migracion():
+                                print("Migración completa")

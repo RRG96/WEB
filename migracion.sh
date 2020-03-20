@@ -26,4 +26,4 @@ echo -n "\$databases['migrate']['default'] = array (\n
 drush migrate-upgrade --legacy-db-url=pgsql://$2@$4/$1 --legacy-$2=/var/www/drupal-8.8.3 --configure-only
 drush migrate-status
 drush migrate-import --all --feedback="60 seconds"
-echo "Es posible que se encuentren errores extra"
+echo "NOTA: Es posible que se encuentren errores extra"
