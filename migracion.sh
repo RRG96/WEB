@@ -1,7 +1,10 @@
 #!/usr/bin/bash
 
 set -e
+cd /var/www/nuevosmagumbos/
+drush dl migrate_tools -y
 drush en migrate_tools -y
+drush dl migrate_upgrade -y
 drush en migrate_upgrade -y
 echo -n "\$databases['upgrade']['default'] = array (\n
 'database' => '$1',\n
