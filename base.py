@@ -46,7 +46,7 @@ def configurar_php():
         exit()
 
 def migracion():
-    if os.system("echo " + config['sudo']['password'] + " | sudo -S chmod +x migracion.sh && sudo ./migracion.sh " + config['PostgreSQL']['database'] + " " + config['PostgreSQL']['user'] + " " + config['PostgreSQL']['password'] + " " + config['PostgreSQL']['ip'] + " " + config['PostgreSQL']['port'] + config['PostgreSQL7']['user'] + " " + config['PostgreSQL7']['password'] + " " + config['PostgreSQL7']['ip'] + " " + config['PostgreSQL7']['database']) == )
+    if os.system("echo " + config['sudo']['password'] + " | sudo -S chmod +x migracion.sh && sudo ./migracion.sh " + config['PostgreSQL']['database'] + " " + config['PostgreSQL']['user'] + " " + config['PostgreSQL']['password'] + " " + config['PostgreSQL']['ip'] + " " + config['PostgreSQL']['port'] + config['PostgreSQL7']['user'] + " " + config['PostgreSQL7']['password'] + " " + config['PostgreSQL7']['ip'] + " " + config['PostgreSQL7']['database']) == 0:
         return True
     else:
         print("La migración no se logró")
