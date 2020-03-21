@@ -63,6 +63,7 @@ if __name__ == '__main__':
         #    if instalar_componente("drush"):
     if configurar_apache():
         if configurar_php():
-            if instalar_componente("desdrush"):
+            input("Presiona una tecla para continuar")
+            #os.system("echo " + config['sudo']['password'] + " | sudo -S ssh user@192.168.137.10 /home/user/desdrush.sh")
                if migracion():
                     print("Migración completa")
