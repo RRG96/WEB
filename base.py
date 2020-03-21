@@ -56,14 +56,14 @@ def migracion():
 if __name__ == '__main__':
     os.system("clear")
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
-    #if (validacion()):
-     #   if instalar_componente("dependencias"):
-      #      if config['Postfix']['install'] == "true":
-       #             instalar_componente("correo2")
-        #    if instalar_componente("drush"):
-    #if configurar_apache():
-       # if configurar_php():
-           # input("Presiona una tecla para continuar")
-            #os.system("echo " + config['sudo']['password'] + " | sudo -S ssh user@192.168.137.10 /home/user/desdrush.sh")
-    if migracion():
-           print("Migración completa")
+    if (validacion()):
+        if instalar_componente("dependencias"):
+            if config['Postfix']['install'] == "true":
+                instalar_componente("correo2")
+            if instalar_componente("drush"):
+                if configurar_apache():
+                    if configurar_php():
+                        input("Presiona una tecla para continuar")
+                        #os.system("echo " + config['sudo']['password'] + " | sudo -S ssh user@192.168.137.10 /home/user/desdrush.sh")
+                        if migracion():
+                            print("Migración completa")
