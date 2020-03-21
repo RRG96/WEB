@@ -61,9 +61,9 @@ if __name__ == '__main__':
       #      if config['Postfix']['install'] == "true":
        #             instalar_componente("correo2")
         #    if instalar_componente("drush"):
-    if configurar_apache():
-        if configurar_php():
-            input("Presiona una tecla para continuar")
+    #if configurar_apache():
+       # if configurar_php():
+           # input("Presiona una tecla para continuar")
             #os.system("echo " + config['sudo']['password'] + " | sudo -S ssh user@192.168.137.10 /home/user/desdrush.sh")
-            if migracion():
-                   print("Migración completa")
+    if migracion():
+           print("Migración completa")
