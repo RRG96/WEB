@@ -4,19 +4,19 @@ from configparser import ConfigParser
 import os
 
 def verificarInstalaciones(dependencia):
-    with open ("dependencias_instaladas.txt", "r") as instaladas:
+    with open ("errorHandler/dependencias_instaladas.txt", "r") as instaladas:
         return True if dependencia in instaladas else False
 
-def instalarComponente():
-    with open ("dependencias.txt", "r") as dependencias:
+def instalarComponente(password):
+    with open ("errorHandler/dependencias.txt", "r") as dependencias:
         for dependencia in dependencias:
+            dependencia_stdout = dependencia.replace('\n','')
             if not verificarInstalaciones(dependencia):
-                if os.system('sudo apt-get install -y ' + dependencia.replace('\n','')) == 0:
-                    print(dependencia.replace('\n','') + ' instalado correctamente')
-                    with open ("dependencias_instaladas.txt", "a") as instaladas:
-                        instaladas.append(dependencia.replace('\n',''))
+                if os.system('set -e | echo ' + password + ' | sudo  -S apt-get install -y ' + dependencia_stdout) == 0:
+                    print(dependencia_stdout + ' instalado correctamente')
+                    with open ("errorHandler/dependencias_instaladas.txt", "a") as instaladas:
+                        instaladas.write(dependencia_stdout + '\n')
                 else:
-                    print('Error en la instalación de ' + dependencia.replace('\n',''))
+                    print('Error en la instalación de ' + dependencia_stdout)
             else:
-                print(dependencia.replace('\n','') + ' ya se encuentra instalado')
-instalarComponente()
+                print(dependencia_stdout + ' ya se encuentra instalado')

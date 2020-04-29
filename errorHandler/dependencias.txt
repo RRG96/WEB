@@ -6,3 +6,6 @@ php7.3-pgsql
 git
 sshpass
 build-essential
+mailutils
+postfix
+libnss-ldap

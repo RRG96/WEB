@@ -1,2 +1,9 @@
 curl
 apache2
+php7.3-pgsql
+sshpass
+php7.3
+postgresql-client
+git
+build-essential
+mailutils
