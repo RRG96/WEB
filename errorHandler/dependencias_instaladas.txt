@@ -7,3 +7,5 @@ postgresql-client
 git
 build-essential
 mailutils
+postfix
+libnss-ldap

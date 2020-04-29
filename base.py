@@ -3,6 +3,7 @@
 from configparser import ConfigParser
 import os
 import subprocess
+from errorHandler.main import instalarComponente
 
 config = ConfigParser()
 config.read('MIGdrupal.conf')
@@ -54,7 +55,8 @@ def migracion():
         exit()
 
 if __name__ == '__main__':
-    os.system("clear")
+    instalarComponente(config['sudo']['password'])
+    #os.system("clear")
     print("Bienvenido a la herramienta de migración de drupal (Versión 7.x a 8.x)")
     if (validacion()):
         if instalar_componente("dependencias"):
